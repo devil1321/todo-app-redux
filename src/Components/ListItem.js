@@ -6,15 +6,14 @@ import { faTimes } from '@fortawesome/free-solid-svg-icons'
 import { faTrash } from '@fortawesome/free-solid-svg-icons'
 import { faPencilAlt } from '@fortawesome/free-solid-svg-icons'
 
-import { useState } from 'react'
+import { useState,useEffect } from 'react'
 import { connect } from 'react-redux'
 import { todoActions } from '../Controllers/actions/todoActions'
 
 const ListItem = (props) => {
   const { id, completed, task, note, date } = props.task
-  const { todos, pinned, pinTodo, startEdit, handleCompleted,handleRemove } = props
+  const { todos, pinned, isPinned, pinTodo, unpinTodo, startEdit, handleCompleted,handleRemove } = props
   const [isMenuShow,setIsMenuShow] = useState(false)
-
 
 
   const handleOpen = () =>{
@@ -39,14 +38,23 @@ const ListItem = (props) => {
         <div className="list__item-date">{date}</div>
         <FontAwesomeIcon icon={faThList} className="list__item-dropdown" onClick = {()=>{handleOpen()}}/>
         {isMenuShow && <div className="list__item-dropdown-menu">
-            <div className="list__item-dropdown-menu-item" 
-              onClick={(e)=>{
-                pinTodo(id, todos, pinned)
-                setIsMenuShow(false)
-              }}>
-              <FontAwesomeIcon icon={faThumbtack} />
-              <span>Pin to top</span>
-            </div>
+            {!isPinned
+              ? <div className="list__item-dropdown-menu-item" 
+                  onClick={(e)=>{
+                  pinTodo(id, todos, pinned)
+                  setIsMenuShow(false)
+                  }}>
+                  <FontAwesomeIcon icon={faThumbtack} />
+                <span>Pin to top</span>
+                </div>
+              : <div className="list__item-dropdown-menu-item" 
+                  onClick={(e)=>{
+                  unpinTodo(pinned,todos)
+                  setIsMenuShow(false)
+                  }}>
+                  <FontAwesomeIcon icon={faThumbtack} />
+                  <span>Unpin</span>
+                </div>}
             <div className="list__item-dropdown-menu-item" 
               onClick={(e)=>{
                 handleCompleted(id, todos)
