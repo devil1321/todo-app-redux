@@ -1,0 +1,96 @@
+.list__item{
+    position: relative;
+    top:0px;
+    left:0px;
+    min-height: 30px;
+    @include createFlex(row,flex-start,center,null);
+    padding:10px 5px;
+    border-bottom: 1px solid transparent;
+    transition: all 100ms ease-in-out;
+    cursor: pointer;
+    background-color: rgba(211, 211, 211, 0.056);
+    margin: 5px 0px;
+    &:hover{
+        border-bottom: 1px solid rgba(211, 211, 211, 0.165);
+
+    }
+    svg{
+        margin-right:8px;
+        cursor: pointer;
+    }
+    &-pin{
+        color:gray;
+    }
+    &-body{
+        @include createFlex(row,flex-start,center,null);
+    }
+    &-btn{
+    }
+    &-completed{
+        color: limegreen;
+    }
+    &-pending{
+        color:red;
+    }
+    &-text{
+    
+        p{
+            margin: 0px;
+            &:last-of-type{
+                font-size: pxToRem(12);
+                color:rgb(131, 128, 128);
+            }
+        }
+        
+    }
+    &-task{
+       
+    }
+    &-testimonials{
+        font-style: italic;
+    }
+    &-date{
+        margin-left: auto;
+        font-style: italic;
+        font-size: pxToRem(10);
+        color:rgb(131, 128, 128);
+    }
+    &-dropdown{
+        background-color: rgba(211, 211, 211, 0.056);
+        position: relative;
+        margin-left: 5px;
+        &:hover{
+            opacity: 0.7;
+        }
+    }
+    &-dropdown-menu{
+        min-width: 120px;
+        padding: 10px 5px;
+        position: absolute;
+        z-index: 2;
+        top:40px;
+        right: 3px;
+        background-color: red;
+        border-radius: 3px;
+        animation: drop 500ms ease-in-out forwards;
+        box-shadow: 0px 0px 10px black;
+        @keyframes drop {
+            0%{
+                top:50px;
+                opacity:0;
+            }
+            100%{
+                top:40px;
+                opacity: 1;
+            }
+        }
+        &-item{
+            padding: 5px;
+            margin: 5px 0px;
+            cursor: pointer;
+            &:hover{
+                background-color: rgba(211, 211, 211, 0.487);
+            }
+        }
+    }
+}

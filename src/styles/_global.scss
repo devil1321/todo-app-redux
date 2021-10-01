@@ -1,0 +1,103 @@
+::-webkit-scrollbar {
+    width: 1px;
+    height: 1px;
+  }
+  ::-webkit-scrollbar-button {
+    width: 0px;
+    height: 0px;
+  }
+  ::-webkit-scrollbar-thumb {
+    background: #e1e1e1;
+    border: 0px none #ffffff;
+    border-radius: 50px;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: #ffffff;
+  }
+  ::-webkit-scrollbar-thumb:active {
+    background: #ffffff;
+  }
+  ::-webkit-scrollbar-track {
+    margin-bottom: 15px;
+    margin-top: 15px;
+    background: #666666;
+    border: 0px none #ffffff;
+    border-radius: 50px;
+  }
+  ::-webkit-scrollbar-track:hover {
+    background: #666666;
+  }
+  ::-webkit-scrollbar-track:active {
+    background: #333333;
+  }
+  ::-webkit-scrollbar-corner {
+    background: transparent;
+  }
+body{
+    color:white;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+.todo{
+    overflow: hidden;
+    position: relative;
+    top:0px;
+    left:0px;
+    width: 100vw;
+    height: 100vh;
+    @include createFlex(row,center,center,null);
+    &:after{
+        content:'';
+        position: absolute;
+        left:180px;
+        top: -505px;
+        width: 120vw;
+        height:150vh;
+        background: rgb(107, 21, 86);
+        transform: rotate(45deg);
+        @include breakpoint-down-l(medium){
+          height:120vh;
+          top:-200px;
+        }
+    }
+    &:before{
+        content:'';
+        position: absolute;
+        left:0px;
+        top:-50px;
+        width: 100vw;
+        height:110vh;
+        background: rgb(84, 24, 77);
+        @include breakpoint-down-l(medium){
+          height:120vh;
+        }
+    }
+    &__app{
+        overflow-y: scroll;
+        padding:10px 20px;
+        position: relative;
+        top:0px;
+        left:0px;
+        z-index:2;
+        width: 400px;
+        height: 70%;
+        border-radius: 10px;
+        background: rgb(36, 36, 36);
+        background: radial-gradient(circle, rgba(39, 39, 39, 0.72) 0%, rgba(0, 0, 0, 0.754) 100%);
+        box-shadow: 0px 0px 10px black;
+        @include breakpoint-down(medium){
+          height:45%;
+          width: 500px;
+        }
+        @include breakpoint-down(medium-sm){
+          height:60%;
+        }
+        @include breakpoint-down(small){
+          width: 90%;
+          max-width: 320px;
+          height:90%;
+        }
+        @include breakpoint-down-l(medium){
+          height:90%;
+        }
+    }
+}

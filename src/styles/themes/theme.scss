@@ -1,0 +1,15 @@
+/*-----------------------GLOBAL-------------------------*/
+
+@import '../normalize.css';
+@import '../variables';
+@import '../mixins';
+@import '../fonts';
+@import '../global';
+
+/*-----------------------COMPONENTS---------------------*/
+
+@import './components/date-picker';
+@import './components/form';
+@import './components/details';
+@import './components/list-item';
+@import './components/list';

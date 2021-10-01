@@ -1,0 +1,40 @@
+.form{
+    margin:30px 0px;
+    @include createFlex(row,center,center,null);   
+    &__field{
+        svg{
+            transform: scale(1.5);
+            margin-right: 10px;
+        }
+        input{
+            padding:5px 10px;
+            background-color: rgba(211, 211, 211, 0.056);
+            border:0px;
+            color:white;
+            border-top-left-radius: 5px;
+            border-bottom-left-radius: 5px;
+            &:focus{
+                outline: none;
+                border: none;
+                box-shadow: 0px 0px 1px greenyellow inset;
+            }
+            @media (max-width:320px){
+                width: 150px;
+            }
+        }
+    }
+    button{
+        margin-left: -1px;
+        padding: 5px 10px;
+        border:0px;
+        border-top-right-radius: 5px;
+        border-bottom-right-radius: 5px;
+        outline:none;
+        color:white;
+        background-color:red;
+        &:active{
+            border:0px;
+            outline:none;
+        }
+    }
+}
