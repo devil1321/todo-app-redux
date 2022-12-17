@@ -161,7 +161,7 @@ const DatePicker = (props) => {
             <FontAwesomeIcon id="prev" icon={faChevronLeft} onClick = {(e)=>{handleCalendarActionState(e,state)}}/>
             <div className="datepicker__content">
                 <h3 className="datepicker__title">{calendarState}</h3>
-                <p className="datepicker__date">{monthName.slice(0,3)} {day}, {year}</p>
+                <p className="datepicker__date">{monthName?.slice(0,3)} {day}, {year}</p>
             </div>
             <FontAwesomeIcon id="next" className="datepicker__next" icon={faChevronRight} onClick = {(e)=>{handleCalendarActionState(e,state)}}/>
         </div>
